@@ -30,7 +30,9 @@ function wpdocs_theme_setup()
 			'comment-list',
 		)
 	);
-
+	register_nav_menus( array(
+		'main_menu' => __( 'Primary Menu', 'text_domain' ),
+	) );
 
 }
 add_action('after_setup_theme', 'wpdocs_theme_setup');
@@ -41,6 +43,8 @@ function harry_header(){
 	get_template_part( 'template-parts/header/header-1' );
 }
 
+	
+include_once('inc/template_function.php');
 include_once('inc/common/scripts.php');
 include_once('inc/harry-kirki.php');
 

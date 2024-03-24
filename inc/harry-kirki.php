@@ -8,6 +8,9 @@ new \Kirki\Panel(
 		'description' => esc_html__( 'Header Customization.', 'harry' ),
 	]
 );
+// header top 
+function header_top(){
+
 
 new \Kirki\Section(
 	'top_header',
@@ -49,3 +52,29 @@ new \Kirki\Field\Text(
 		'priority' =>3,
 	]
 );
+}
+header_top();
+
+// header logo 
+
+new \Kirki\Section(
+	'header_logo',
+	[
+		'title'       => esc_html__( 'Header logo', 'kirki' ),
+		'description' => esc_html__( 'Customize header logo', 'kirki' ),
+		'panel'       => 'header',
+		'priority'    => 160,
+	]
+);
+function header_logo(){
+	new \Kirki\Field\Image(
+		[
+			'settings'    => 'hary_header_logo',
+			'label'       => esc_html__( 'Image Control (URL)', 'kirki' ),
+			'description' => esc_html__( 'The saved value will be the URL.', 'kirki' ),
+			'section'     => 'header_logo',
+			'default'     => get_template_directory_uri().'/assets/img/logo/logo-black.svg',
+		]
+	);
+}
+header_logo();
