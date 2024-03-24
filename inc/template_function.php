@@ -9,3 +9,16 @@ function harry_logo(){
            
            <?php
    }
+
+// harry_menu
+function harry_menu(){
+    wp_nav_menu( 
+        array( 
+            'theme_location'  => 'main_menu',
+            'menu_class'      => 'main_menu',
+            'menu_id'         => 'main_menu',
+            'fallback_cb'     => 'Harry_Walker_Nav_Menu::fallback',
+            'walker'     => new Harry_Walker_Nav_Menu,
+        ) 
+    ); 
+}
