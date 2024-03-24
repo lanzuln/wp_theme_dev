@@ -183,5 +183,5 @@
       <!-- offcanvas area end -->
 
       <!-- search popup start -->
-      <?php get_template_part('template-parts/header/header-search') ?>
+      <?php get_template_part('template-parts/header/search') ?>
       <!-- search popup end --> 

@@ -61,7 +61,7 @@ new \Kirki\Section(
 	'header_logo',
 	[
 		'title'       => esc_html__( 'Header logo', 'kirki' ),
-		'description' => esc_html__( 'Customize header logo', 'kirki' ),
+		'description' => esc_html__( 'Customize logo', 'kirki' ),
 		'panel'       => 'header',
 		'priority'    => 160,
 	]
@@ -70,11 +70,22 @@ function header_logo(){
 	new \Kirki\Field\Image(
 		[
 			'settings'    => 'hary_header_logo',
-			'label'       => esc_html__( 'Image Control (URL)', 'kirki' ),
+			'label'       => esc_html__( 'Header menu Logo', 'kirki' ),
 			'description' => esc_html__( 'The saved value will be the URL.', 'kirki' ),
 			'section'     => 'header_logo',
 			'default'     => get_template_directory_uri().'/assets/img/logo/logo-black.svg',
 		]
 	);
+
+		new \Kirki\Field\Image(
+			[
+				'settings'    => 'search_logo',
+				'label'       => esc_html__( 'Search Logo', 'kirki' ),
+				'description' => esc_html__( 'The saved value will be the URL.', 'kirki' ),
+				'section'     => 'header_logo',
+				'default'     => get_template_directory_uri().'/assets/img/logo/logo.svg',
+			]
+		);
 }
+
 header_logo();

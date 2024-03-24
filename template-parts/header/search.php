@@ -5,9 +5,7 @@
                   <div class="search__wrapper">
                      <div class="search__top d-flex justify-content-between align-items-center">
                         <div class="search__logo">
-                           <a href="index.html">
-                              <img src="<?php get_template_directory_uri();?>/assets/img/logo/logo.svg" alt="">
-                           </a>
+                           <?php harry_search_logo();?>
                         </div>
                         <div class="search__close">
                            <button type="button" class="search__close-btn search-close-btn">
@@ -19,9 +17,9 @@
                         </div>
                      </div>
                      <div class="search__form">
-                        <form action="#">
+                        <form action="/" method="get">
                            <div class="search__input">
-                              <input class="search-input-field" type="text" placeholder="Type here to search...">
+                              <input class="search-input-field" name="s" type="text"  value="<?php the_search_query(); ?>" placeholder="<?php echo esc_attr__('Type here to search...','harry');?>">
                               <span class="search-focus-border"></span>
                               <button type="submit">
                                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

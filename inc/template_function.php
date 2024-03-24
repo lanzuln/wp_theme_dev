@@ -10,6 +10,17 @@ function harry_logo(){
            <?php
    }
 
+   function harry_search_logo(){
+    $haray_search_logo= get_theme_mod('search_logo',get_template_directory_uri().'/assets/img/logo/logo.svg');
+   ?>
+           <a href="<?php echo esc_url(home_url('/'));?>">
+               <img src="<?php echo esc_url($haray_search_logo);?>" style="max-width:120px" alt="<?php echo bloginfo();?>">
+           </a>
+           
+           <?php
+   }
+
+
 // harry_menu
 function harry_menu(){
     wp_nav_menu( 
