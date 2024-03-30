@@ -137,12 +137,12 @@ class Harry_Walker_Nav_Menu extends Walker {
 		$classes   = empty( $menu_item->classes ) ? array() : (array) $menu_item->classes;
 		$classes[] = 'menu-item-' . $menu_item->ID;
         // if we need li custom class
-		// $classes[] = 'menu-li-custom-class';
+		// $classes[] = 'has-dropdown';
 
         // if html li has custom dropdown class 
-        // if($args->walker->has_children == true) {
-		//     $classes[] = 'custom-dropdown-menu-class';
-        // }
+        if($args->walker->has_children == true) {
+		    $classes[] = 'has-dropdown';
+        }
 
 		/**
 		 * Filters the arguments for a single nav menu item.
