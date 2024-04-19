@@ -145,3 +145,27 @@ function footer_copyright(){
         <p><?php echo wp_kses_post($footer_copyright); ?></p>
     <?php
 }
+
+// harry_blog_navigation 
+function harry_navigation(){
+    $pages = paginate_links( array( 
+        'type' => 'array',
+        'prev_text'    => __('<svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.17749 10.105L1.62499 5.55248L6.17749 0.999981" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M14.3767 5.55249L1.75421 5.55249" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+     </svg>                                       
+     Prev'),
+        'next_text'    => __('Next
+        <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+           <path d="M9.82422 1L14.3767 5.5525L9.82422 10.105" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+           <path d="M1.625 5.55249H14.2475" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg> '),
+    ) );
+        if( $pages ) {
+        echo '<nav><ul>';
+        foreach ( $pages as $page ) {
+            echo "<li>$page</li>";
+        }
+        echo '</ul></nav>';
+    }
+}

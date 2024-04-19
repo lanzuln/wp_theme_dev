@@ -97,4 +97,5 @@ if(class_exists('kirki')){
 }
 
 include_once('inc/nav-walker.php');
+include_once('inc/breadcrumb.php');
 
