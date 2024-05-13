@@ -169,3 +169,79 @@ function harry_navigation(){
         echo '</ul></nav>';
     }
 }
+
+
+function harry_tags(){
+	$post_tags = get_the_tags();
+    if ($post_tags) {
+        foreach ($post_tags as $tag) {
+            ?>
+            <a href="<?php echo get_tag_link($tag); ?>"><?php echo $tag->name; ?></a>
+            <?php
+        }
+    } else {
+        ?>
+        <i>No tags found</i>
+        <?php
+    }
+}
+
+function harry_social_share(){ ?>
+    <div class="postbox__share text-xl-end">
+        <span>Share On:</span>
+        <a href="https://www.linkedin.com/shareArticle?url=<?php the_permalink(); ?>" target="_blank">
+            <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+        <a href="https://twitter.com/intent/tweet?url=<?php the_permalink(); ?>&text=<?php the_title(); ?>" target="_blank">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+    </div>
+<?php
+}
+// display_post_views 
+
+// track_post_views
+function track_post_views() {
+    if (is_single()) {
+        global $post;
+        $post_id = $post->ID;
+
+        $views = get_post_meta($post_id, 'post_views', true);
+        $views = $views ? $views : 0;
+
+        $views++;
+        update_post_meta($post_id, 'post_views', $views);
+    }
+}
+
+add_action('wp_head', 'track_post_views');
+
+function display_post_views() {
+    if (is_single()) {
+        $post_views = get_post_meta(get_the_ID(), 'post_views', true);
+        echo ($post_views ? $post_views : 0);
+    }
+}
+
+
+function harry_search_form( $search_form ) {
+    $search_form = '<div class="sidebar__search">
+                <form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
+                    <div class="sidebar__search-input">
+                        <input type="search" class="search-field" placeholder="' . esc_attr_x( 'Enter your keywords...', 'harry' ) . '" value="' . get_search_query() . '" name="s" />
+                        <button type="submit" class="search-submit">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.55 18.1C14.272 18.1 18.1 14.272 18.1 9.55C18.1 4.82797 14.272 1 9.55 1C4.82797 1 1 4.82797 1 9.55C1 14.272 4.82797 18.1 9.55 18.1Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M19.0002 19.0002L17.2002 17.2002" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>';
+
+    return $search_form;
+}
+add_filter( 'get_search_form', 'harry_search_form' );

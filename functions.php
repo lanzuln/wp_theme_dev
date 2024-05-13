@@ -45,6 +45,16 @@ add_action('after_setup_theme', 'wpdocs_theme_setup');
 
 // harry_widgets
 function harry_widgets(){
+	
+	register_sidebar( array(
+		'name'          => __( 'Blog Sidebar', 'harry' ),
+		'id'            => 'blog-sidebar',
+		'description'   => __( 'Widgets in this area will be shown blog sidebar', 'harry' ),
+		'before_widget' => '<div id="%1$s" class="sidebar__widget mb-40 %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="sidebar__widget-title">',
+		'after_title'   => '</h3>',
+	) );
 
     register_sidebar( array(
 		'name'          => __( 'Footer Widget 01', 'harry' ),
@@ -91,6 +101,7 @@ add_action( 'widgets_init', 'harry_widgets' );
 	
 include_once('inc/template_function.php');
 include_once('inc/common/scripts.php');
+include_once('inc/common/comments-form-list.php');
 
 if(class_exists('kirki')){
 	include_once('inc/harry-kirki.php');
@@ -99,3 +110,4 @@ if(class_exists('kirki')){
 include_once('inc/nav-walker.php');
 include_once('inc/breadcrumb.php');
 
+include_once('inc/sidebar-rc-post-widget.php');

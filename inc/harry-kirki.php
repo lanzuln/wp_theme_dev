@@ -11,8 +11,6 @@ new \Kirki\Panel(
 // header top 
 function header_top()
 {
-
-
     new \Kirki\Section(
         'top_header',
         [
@@ -319,23 +317,24 @@ function harry_social_section()
 harry_social_section();
 
 // harry footer bottom
-function harry_footer_section(){
+function harry_footer_section()
+{
     new \Kirki\Section(
         'harry_footer_option',
         [
-            'title'       => esc_html__( 'Footer', 'harry' ),
-            'description' => esc_html__( 'Footer section here', 'harry' ),
-            'panel'       => 'header',
-            'priority'    => 160,
+            'title' => esc_html__('Footer', 'harry'),
+            'description' => esc_html__('Footer section here', 'harry'),
+            'panel' => 'header',
+            'priority' => 160,
         ]
     );
 
     new \Kirki\Field\Text(
         [
             'settings' => 'harry_footer_copyright',
-            'label'    => esc_html__( 'Footer Copyright', 'harry' ),
-            'section'  => 'harry_footer_option',
-            'default'  => esc_html__( '© 2024 Harry All Rights Reserved.', 'harry' ),
+            'label' => esc_html__('Footer Copyright', 'harry'),
+            'section' => 'harry_footer_option',
+            'default' => esc_html__('© 2024 Harry All Rights Reserved.', 'harry'),
             'priority' => 10,
         ]
     );
@@ -344,25 +343,63 @@ function harry_footer_section(){
 harry_footer_section();
 
 // Blog section 
-function harry_blog_section(){
+function harry_blog_section()
+{
     new \Kirki\Section(
         'harry_blog_option',
         [
-            'title'       => esc_html__( 'Blog', 'harry' ),
-            'description' => esc_html__( 'Blog section here', 'harry' ),
-            'panel'       => 'header',
-            'priority'    => 160,
+            'title' => esc_html__('Blog', 'harry'),
+            'description' => esc_html__('Blog section here', 'harry'),
+            'panel' => 'header',
+            'priority' => 160,
         ]
     );
 
     new \Kirki\Field\Image(
         [
             'settings' => 'harry_breadcrumb_bg',
-            'label'    => esc_html__( 'Breadcrumb Image', 'harry' ),
-            'section'  => 'harry_blog_option',
+            'label' => esc_html__('Breadcrumb Image', 'harry'),
+            'section' => 'harry_blog_option',
             'priority' => 10,
         ]
     );
 
 }
 harry_blog_section();
+
+new \Kirki\Panel(
+    'blog',
+    [
+        'priority' => 10,
+        'title' => esc_html__('Harry Blog', 'harry'),
+        'description' => esc_html__('Blog Customization.', 'harry'),
+    ]
+);
+
+
+function blog_side_bar()
+{
+    new \Kirki\Section(
+        'blog_sidebar',
+        [
+            'title' => esc_html__('Blog sidebar', 'kirki'),
+            'description' => esc_html__('Blog sidebar', 'kirki'),
+            'panel' => 'blog',
+            'priority' => 160,
+        ]
+    );
+}
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'sidebar_switch_setting',
+		'label'       => esc_html__( 'Switch Field', 'kirki' ),
+		'description' => esc_html__( 'Simple switch control', 'kirki' ),
+		'section'     => 'blog_sidebar',
+		'default'     => 'on',
+		'choices'     => [
+			'on'  => esc_html__( 'Enable', 'kirki' ),
+			'off' => esc_html__( 'Disable', 'kirki' ),
+		],
+	]
+);
+blog_side_bar();

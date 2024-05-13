@@ -19,6 +19,43 @@ Use it to make something cool, have fun, and share what you've learned with othe
     display: inline-block;
     margin-left: 15px;
 }
-.home .breadcrumb__area{
+
+.home .breadcrumb__area {
     display: none;
+}
+
+img {
+    height: auto;
+}
+
+.postbox__comment {
+    list-style: none;
+}
+
+.postbox__comment .children {
+    margin-left: 70px;
+    margin-top: 20px;
+}
+
+#reply-title a {
+    font-size: 15px;
+    margin-left: 5px;
+    color: var(--tp-theme-1);
+    font-weight: 500;
+}
+
+/* .acf-comment-fields.acf-fields.-clear {
+    display: none;
+} */
+.single .postbox__audio {
+    height: 200px;
+}
+
+.single .blog__grid-quote-icon {
+    margin-bottom: 0px;
+    padding: 33px 33px 0px 33px;
+}
+
+.tagcloud a {
+    font-size: 14px !important;
 }
