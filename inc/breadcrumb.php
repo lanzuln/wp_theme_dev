@@ -35,9 +35,10 @@ function harry_breadcrumb()
 
 
     $breadcrumb_bg_img = get_theme_mod('harry_breadcrumb_bg');
+    $breadcrumbSwitch = function_exists('get_field') ? get_field('breadcrumb') : null;
 
     ?>
-
+<?php if(!empty($breadcrumbSwitch)): ?>
     <section class="breadcrumb__area pt-130 pb-115 breadcrumb__style-10 black-bg p-relative z-index-1">
         <div class="breadcrumb__bg-4 breadcrumb__bg-overlay m-img include-bg"
             data-background="<?php echo esc_url($breadcrumb_bg_img); ?>"></div>
@@ -56,24 +57,8 @@ function harry_breadcrumb()
             </div>
         </div>
     </section>
+    <?php endif;?>
 
-    <!-- <section class="breadcrumb__area pt-130 pb-115 breadcrumb__style-10 black-bg p-relative z-index-1">
-            <div class="breadcrumb__bg-4 breadcrumb__bg-overlay m-img include-bg" data-background="assets/img/blog/breadcrumb/blog-breadcrumb-slider-3.jpg"></div>
-               <div class="container">
-                  <div class="row justify-content-center">
-                     <div class="col-xl-10">
-                        <div class="breadcrumb__content text-center">
-                           <h3 class="breadcrumb__title">Our Blog</h3>
-                           <div class="breadcrumb__list">
-                              <span><a href="#">Home</a></span>
-                              <span class="dvdr"><i class="fa-solid fa-circle-small"></i></span>
-                              <span>Blog</span>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-         </section> -->
 
 
     <?php
